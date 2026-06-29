@@ -3,7 +3,7 @@ import AddFriendsContext from "../context/addFriendsContext";
 import { useContext } from "react";
 
 function FriendList() {
-  // TODO replace with context
+  // With context
   const { friends } = useContext(AddFriendsContext);
 
   return (

@@ -18,6 +18,10 @@ function App() {
 
   return (
     <div className='App'>
+      {// Ajout d'un provider pour le contexte AddFriendsContext afin de partager l'état des amis et la fonction setFriends avec les composants enfants
+      }
+      <h1>Friends App</h1>
+      <hr />
       <AddFriendsContext.Provider value={{ friends, setFriends }}> 
       <FriendList/>
       <h2>Users :</h2>
