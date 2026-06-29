@@ -1,8 +1,10 @@
 import PropTypes from "prop-types";
+import AddFriendsContext from "../context/addFriendsContext";
+import { useContext } from "react";
 
-function FriendList(props) {
+function FriendList() {
   // TODO replace with context
-  const { friends } = props;
+  const { friends } = useContext(AddFriendsContext);
 
   return (
     <div className="FriendList">
@@ -14,9 +16,5 @@ function FriendList(props) {
     </div>
   );
 }
-
-FriendList.propTypes = {
-  friends: PropTypes.array.isRequired,
-};
 
 export default FriendList;

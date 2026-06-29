@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import FriendList from "./components/FriendList";
 import User from "./components/User";
+import AddFriendsContext from "./context/addFriendsContext";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -17,22 +18,21 @@ function App() {
 
   return (
     <div className='App'>
-      <FriendList
-        /* TODO replace friends with context */
-        friends={friends}
-      />
+      <AddFriendsContext.Provider value={{ friends, setFriends }}> 
+      <FriendList/>
       <h2>Users :</h2>
       {users.map((user) => (
         <User
           key={user.id}
-          {...user}
-          /* TODO replace friends and setFriends with context */
-          friends={friends}
-          setFriends={setFriends}
+          {...user} 
         />
       ))}
+
+      </AddFriendsContext.Provider>
+      
     </div>
   );
 }
 
 export default App;
+

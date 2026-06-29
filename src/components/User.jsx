@@ -1,10 +1,12 @@
 import PropTypes from "prop-types";
+import AddFriendsContext from "../context/addFriendsContext";
+import { useContext } from "react";
 
 function User(props) {
   const { username, name, email } = props;
 
-  // TODO replace with context
-  const { friends, setFriends } = props;
+  // With context
+  const { friends, setFriends } = useContext(AddFriendsContext);
 
   function addFriend() {
     if (friends.includes(username)) {
@@ -27,12 +29,5 @@ function User(props) {
   );
 }
 
-User.propTypes = {
-  username: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  email: PropTypes.string.isRequired,
-  friends: PropTypes.array.isRequired,
-  setFriends: PropTypes.func.isRequired,
-};
 
 export default User;
